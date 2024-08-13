@@ -1,12 +1,13 @@
 import React from "react";
-import Test from './Test';
-import TestBox from "./TestBox";
+import First from './first';
+import './App.css';
 
 function App() {
     return(
         <>
-            <Test />
-            <TestBox />
+            <div className="container">
+                <First />
+            </div>
         </>
     );
 }

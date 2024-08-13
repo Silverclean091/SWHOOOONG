@@ -1,0 +1,22 @@
+.parent{
+    display: flex;
+}
+
+.child{
+    margin: auto auto;
+}
+
+.logo{
+    margin-bottom: 40px;
+}
+
+/*안먹힘 고쳐야함*/
+.join{
+    color: white;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);  /*박스 그림자*/
+    border-radius: 20px;
+}
+
+.log_in{
+    color: #333333;
+}
