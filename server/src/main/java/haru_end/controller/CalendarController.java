@@ -34,10 +34,16 @@ public class CalendarController {
         return calendarService.findAllEvents();
     }
 
-    // 데이터 업데이트 (PATCH)
+    // 데이터 필드 부분 업데이트 (PATCH)
     @PatchMapping("/{id}")
     public void updateEventById(@PathVariable Long id, @RequestBody calendarDTO calendarDTO) {
         calendarService.updateEventById(id, calendarDTO);
+    }
+
+    //데이터 업데이트 (PUT)
+    @PutMapping("/{id}")
+    public void replaceEventById(@PathVariable Long id, @RequestBody calendarDTO calendarDTO) {
+        calendarService.replaceEventById(id, calendarDTO);
     }
 
     // 데이터 삭제 (DELETE)
