@@ -1,10 +1,12 @@
 package haru_end.dto;
 
+import lombok.Data;
+
 import java.time.LocalDate;
 
-public class CalendarDTO {
-    private Long id;
-    private String userEmail;
+@Data
+public class calendarDTO {
+    private long id;
     private String title;
     private String description;
     private LocalDate startDate;

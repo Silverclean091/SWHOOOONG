@@ -1,56 +1,17 @@
 package haru_end.entity;
 
-import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Getter
-@Entity
-@Table(name = "calendar_events")
-public class CalendarEntity {
+@Getter // private을 관리하는 메서드, private을 외부로 꺼내는 메서드, 리턴값만 존재
+@Setter // private에 값을 넣는 메서드
 
-    // Getters and Setters
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "user_email", nullable = false)
-    private String userEmail;
-
-    @Column(name = "title", nullable = false, length = 30)
-    private String title;
-
-    @Column(name = "description", length = 30)
-    private String description;
-
-    @Column(name = "start_date", nullable = false)
-    private LocalDate startDate;
-
-    @Column(name = "end_date", nullable = false)
-    private LocalDate endDate;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
+public class calendarEntity {
+    private long id; // 캘린더 id
+    private String title; // 캘린더 제목
+    private String description; // 캘린더 짧은설명
+    private LocalDate startDate; // 캘린더 시작날짜
+    private LocalDate endDate; // 캘린더 종료날짜
 }
