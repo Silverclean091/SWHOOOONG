@@ -1,22 +1,26 @@
-.parent{
-    display: flex;
-}
-
-.child{
-    margin: auto auto;
-}
-
 .logo{
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    display: grid;
 }
 
-/*안먹힘 고쳐야함*/
 .join{
     color: white;
-    box-shadow: 0 3px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);  /*박스 그림자*/
+    box-shadow: 0 3px rgba(45, 45, 45, 0.16), 0 3px 6px rgba(45, 45, 45, 0.23);
+    background-color: #2D2D2D;
     border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 150px;
+    cursor: pointer;
+    margin-top: 15px;
+    text-decoration: none;
 }
 
 .log_in{
     color: #333333;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
 }

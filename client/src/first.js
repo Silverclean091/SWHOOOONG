@@ -1,18 +1,22 @@
-import React from "react";
-import styles from './first.css'
+import './First.css';
+import {Link} from 'react-router-dom'
 
-function First() {
+function first() {
     return (
-        <div className="First">
-            <div className={styles.parent}>
-                <div className={styles.child}>
-                    <img className={styles.logo} alt="logo" src="img/cat.jpg" width='400px'/>
-                    <h2 className={styles.join}>회원가입</h2>
-                    <h3 className={styles.log_in}>로그인</h3>
-                </div>
+        <div className='First'>
+            <div className='container'>
+                <img className='logo' alt="logo" src="img/cat.jpg" width='400px'/>
+                <Link to='/join' className='join'>
+                    회원가입
+                </Link>
+                <Link to='/log_in' className='log_in'>
+                    <h3>
+                        로그인
+                    </h3>
+                </Link>
             </div>
         </div>
     );
 }
 
-export default First;
+export default first;
