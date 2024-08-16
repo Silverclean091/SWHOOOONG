@@ -15,7 +15,7 @@
     color: #333333;
 }
 
-.middle{
+.middle1{
     display: grid;
     margin: 0 auto;
     margin-top: 5px;
@@ -24,7 +24,6 @@
     background-color: #F5F5F5;
     border-radius: 20px;
     font-size: 15px;
-/*    padding: 10px 100px;*/
     padding: 10px 150px 10px 10px;
     cursor: auto;
     margin-bottom: 15px;
@@ -32,6 +31,35 @@
     text-align: left;
 }
 
-.middle:focus{
+.middle1:focus{
     outline:none;
+}
+
+.middle2{
+    font-size: 15px;
+    border-radius: 20px;
+    box-shadow: 0 3px rgba(45, 45, 45, 0.16), 0 3px 6px rgba(45, 45, 45, 0.23);
+    background-color: #2D2D2D;
+    color: #FFFFFF;
+    padding: 10px 40px 10px 40px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.peristalsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 90px;
+}
+
+.peristalsis img{
+    margin: 0 20px;
+    width: 40px;
+    border-radius: 50px;
 }
