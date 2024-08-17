@@ -9,9 +9,9 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<First />} />
-                <Route path="/join" element={<Join />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<First />} /> //시작페이지
+                <Route path="/join" element={<Join />} /> //회원가입
+                <Route path="/login" element={<Login />} /> //로그인
             </Routes>
         </BrowserRouter>
     );

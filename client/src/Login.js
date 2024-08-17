@@ -1,4 +1,4 @@
-import './Join.css';
+import './Join.css'; //회원가입과 같은 css사용
 import './First.css';
 import {Link} from "react-router-dom";
 

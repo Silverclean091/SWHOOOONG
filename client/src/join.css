@@ -1,4 +1,4 @@
-.arrow_prev{
+.arrow_prev{ /*상단 화살표*/
     position: absolute;
     left: 50px;
     top: 30px;
@@ -10,12 +10,12 @@
     transform: rotate(225deg);
 }
 
-.top{
+.top{ /*상단*/
     text-align: center;
     color: #333333;
 }
 
-.middle1{
+.middle1{ /*이메일, 비밀번호*/
     display: grid;
     margin: 0 auto;
     margin-top: 5px;
@@ -31,11 +31,11 @@
     text-align: left;
 }
 
-.middle1:focus{
+.middle1:focus{ /*테두리 지우기*/
     outline:none;
 }
 
-.middle2{
+.middle2{ /*인증, 확인*/
     font-size: 15px;
     border-radius: 20px;
     box-shadow: 0 3px rgba(45, 45, 45, 0.16), 0 3px 6px rgba(45, 45, 45, 0.23);
@@ -51,14 +51,14 @@
     display: block;
 }
 
-.peristalsis {
+.peristalsis { /*연동*/
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 90px;
 }
 
-.peristalsis img{
+.peristalsis img{ /*연동 로고 이미지*/
     margin: 0 20px;
     width: 40px;
     border-radius: 50px;
