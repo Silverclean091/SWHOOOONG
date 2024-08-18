@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import '../style/Calendar.css';
 
 function App() {
     const [value, onChange] = useState(new Date());
@@ -9,7 +9,12 @@ function App() {
         <div>
             <Calendar
             onChange={onChange} value={value}
-            calendarType='hebrew'
+            calendarType='gregory'
+            formatDay={(locale, date) => date.toLocaleString('en', 
+                {day: 'numeric'})}
+            prev2Label={null}
+            next2Label={null}
+            showNeighboringMonth={false}
             />
         </div>
     );
