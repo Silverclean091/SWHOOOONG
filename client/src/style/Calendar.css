@@ -1,10 +1,11 @@
 .react-calendar {
-  width: 350px;
+  width: 550px;
   max-width: 100%;
   background: white;
-  border: 1px solid #a0a096;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
+  margin-top: 50px;
+  margin-left: 100px;
 }
 
 .react-calendar--doubleView {
@@ -42,7 +43,7 @@
 
 .react-calendar__navigation {
   display: flex;
-  height: 44px;
+  height: 50px;
   margin-bottom: 1em;
 }
 
@@ -104,7 +105,7 @@
   text-align: center;
   line-height: 16px;
   font: inherit;
-  font-size: 0.833em;
+  font-size: 13px;
 }
 
 .react-calendar__tile:disabled {
@@ -153,4 +154,22 @@
 
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
+}
+
+.top {
+  width: 768px;
+  height: 5vh;
+  background-color: #ababab;
+}
+
+.mid {
+  width: 768px;
+  height: 85vh;
+  background-color: #76baff;
+}
+
+.under {
+  width: 768px;
+  height: 10vh;
+  background-color: #ffff76;
 }
