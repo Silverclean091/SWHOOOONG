@@ -1,13 +1,13 @@
 package haru_end.repository;
 
-import haru_end.entity.calendarEntity;
+import haru_end.entity.CalendarEntity;
 
 import java.util.List;
 
 public interface CalendarRepository {
-    void save(calendarEntity calendarEntity);
-    calendarEntity findById(Long id);
-    List<calendarEntity> findAll();
-    void updateById(Long id, calendarEntity calendarEntity);
+    void save(CalendarEntity calendarEntity);
+    CalendarEntity findById(Long id);
+    List<CalendarEntity> findAll();
+    void updateById(Long id, CalendarEntity calendarEntity);
     void deleteById(Long id);
 }
