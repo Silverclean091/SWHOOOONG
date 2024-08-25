@@ -66,19 +66,6 @@ public class CalendarService {
         calendarRepository.updateById(id, existingEvent); // 업데이트 할 필드만 업데이트됨
     }
 
-    //데이터 전체 업데이트 (PUT)
-    public void replaceEventById(Long id, CalendarDTO calendarDTO) {
-        CalendarEntity existingEvent = calendarRepository.findById(id);
-        if(existingEvent != null) {
-            existingEvent.setTitle(calendarDTO.getTitle());
-            existingEvent.setDescription(calendarDTO.getDescription());
-            existingEvent.setStartDate(calendarDTO.getStartDate());
-            existingEvent.setEndDate(calendarDTO.getEndDate());
-            existingEvent.setUser_email(calendarDTO.getUser_email());
-            calendarRepository.updateById(id, existingEvent);
-        }
-    }
-
     // 데이터 삭제 (DELETE)
     public void deleteEventById(Long id) {
         calendarRepository.deleteById(id);

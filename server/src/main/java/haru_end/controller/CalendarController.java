@@ -40,12 +40,6 @@ public class CalendarController {
         calendarService.updateEventById(id, calendarDTO);
     }
 
-    //데이터 업데이트 (PUT)
-    @PutMapping("/{id}")
-    public void replaceEventById(@PathVariable Long id, @RequestBody CalendarDTO calendarDTO) {
-        calendarService.replaceEventById(id, calendarDTO);
-    }
-
     // 데이터 삭제 (DELETE)
     @DeleteMapping("/{id}")
     public void deleteEventById(@PathVariable Long id) {
