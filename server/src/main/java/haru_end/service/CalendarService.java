@@ -16,7 +16,7 @@ public class CalendarService {
         this.calendarRepository = calendarRepository;
     }
 
-    // 데이터 추가 (POST)
+    // POST
     public void saveEvent(CalendarDTO calendarDTO) {
         CalendarEntity calendarEntity = new CalendarEntity();
         calendarEntity.setTitle(calendarDTO.getTitle());
@@ -27,7 +27,7 @@ public class CalendarService {
         calendarRepository.save(calendarEntity);
     }
 
-    // 데이터 조회 (GET)
+    // GET
     public CalendarDTO findEventById(Long id) {
         CalendarEntity calendarEntity = calendarRepository.findById(id);
         if (calendarEntity == null) {
@@ -43,7 +43,7 @@ public class CalendarService {
                 .toList();
     }
 
-    // 데이터 부분 필드 업데이트 (PATCH)
+    // 데이터 부분 필드 업데이트(PATCH)
     public void updateEventById(Long id, CalendarDTO calendarDTO) {
         CalendarEntity existingEvent = calendarRepository.findById(id);
         if (existingEvent != null) {
@@ -66,7 +66,7 @@ public class CalendarService {
         calendarRepository.updateById(id, existingEvent); // 업데이트 할 필드만 업데이트됨
     }
 
-    // 데이터 삭제 (DELETE)
+    // DELETE
     public void deleteEventById(Long id) {
         calendarRepository.deleteById(id);
     }
