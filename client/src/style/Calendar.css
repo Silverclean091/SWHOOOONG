@@ -1,15 +1,12 @@
 .react-calendar {
   width: 550px;
+  height: 385px;
   max-width: 100%;
   background: #f5f5f5;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
   margin-top: 50px;
   margin-left: 100px;
-}
-
-.Calendar-container {
-  height: 700px;
 }
 
 .react-calendar--doubleView {
@@ -106,7 +103,7 @@
 
 .react-calendar__tile {
   max-width: 100%;
-  padding: 10px 6.6667px;
+  padding: 20px 6.6667px;
   background: none;
   text-align: center;
   line-height: 16px;
@@ -130,32 +127,29 @@
   background-color: #e6e6e6;
 }
 
-.react-calendar__tile--now {
-  background: #ffff76;
-}
-
+.react-calendar__tile--now,
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
-  background: #ffffa9;
+  background: #707070;
 }
 
-.react-calendar__tile--hasActive {
+/* .react-calendar__tile--hasActive {
   background: #76baff;
 }
 
 .react-calendar__tile--hasActive:enabled:hover,
 .react-calendar__tile--hasActive:enabled:focus {
   background: #a9d4ff;
-}
+} */
 
 .react-calendar__tile--active {
-  background: #006edc;
+  background: #b8bfc7;
   color: white;
 }
 
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-  background: #1087ff;
+  background: #b8bfc7;
 }
 
 .react-calendar--selectRange .react-calendar__tile--hover {
@@ -165,7 +159,7 @@
 .top {
   width: 768px;
   height: 5vh;
-  background-color: #ababab;
+  align-items: center;
 }
 
 .logo {
@@ -178,55 +172,76 @@
 .menu {
   width: 100px;
   height: 5vh;
-  background-color: #a9d4ff;
   float: right;
 }
 
-.alert {
+.alarm {
   width: 100px;
   height: 5vh;
-  background-color: #ffff76;
   float: right;
+  align-items: center;
 }
 
 .mid {
   width: 768px;
-  height: 85vh;
+  height: 87vh;
 }
 
 .under {
   width: 768px;
-  height: 10vh;
-  background-color: #ffff76;
+  height: 8vh;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+
+.foot > div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.foot > div > span {
+  margin-top: 5px;
+  font-size: 10px;
+  color: #333;
 }
 
 .addButton {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 50px;
-  height: 50px;
+  left: 590px;
+  bottom: 70px;
+  width: 100px;
+  height: 100px;
   background-color: #f5f5f5;
   color: #333;
   border: none;
   border-radius: 50%;
-  font-size: 24px;
+  font-size: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 /* 모달 */
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  transform: translate(-50%, -50%);
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 500px;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
   background-color: white;
   padding: 20px;
   border-radius: 8px;
@@ -234,7 +249,10 @@
 }
 
 .overlay {
-  position: fixed;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   right: 0;
@@ -259,13 +277,13 @@ input, textarea {
 
 .eventSec {
   width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
+  max-width: 500px;
+  margin-left: 70px;
+  margin-top: 0px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  max-height: 300px; /* 일정 목록의 최대 높이 지정 */
-  overflow-y: auto; /* 내용이 넘칠 경우 세로 스크롤 표시 */
+  max-height: 300px; 
+  overflow-y: auto;
 }
 
 /* 일정 목록 섹션 */
@@ -274,7 +292,6 @@ input, textarea {
   max-width: 600px;
   margin-top: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
@@ -283,12 +300,13 @@ input, textarea {
   font-size: 20px;
   color: #333;
   margin-top: 35px;
-  margin-bottom: 15px;
   margin-left: 100px;
 }
 
 /* 개별 이벤트 박스 */
 .eventBox {
+  width: 480px;
+  height: 70px;
   background-color: #f5f5f5;
   border-radius: 40px;
   padding: 10px;
@@ -298,12 +316,40 @@ input, textarea {
   flex-direction: column;
 }
 
-/* 이벤트 정보 컨테이너 */
+.eventOption {
+  position: relative;
+  right: 0;
+  top: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.eventMenu {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.eventOption button {
+  align-items: center;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.eventOption button svg {
+  margin-right: 4px;
+}
+
 .eventInfo {
   margin-bottom: 8px;
 }
 
-/* 이벤트 제목 */
 .eventTitle {
   font-size: 16px;
   font-weight: bold;
@@ -314,7 +360,6 @@ input, textarea {
   margin-left: 30px;
 }
 
-/* 이벤트 메모 */
 .eventMemo {
   font-size: 14px;
   color: #AAA;
@@ -322,24 +367,8 @@ input, textarea {
   margin-left: 30px;
 }
 
-/* 이벤트 시간 */
 .eventTime {
   font-size: 14px;
   color: #333;
   text-align: right;
-}
-
-.delButton {
-  background-color: #ff4d4f;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-  margin-top: 10px;
-  align-self: flex-end;
-}
-
-.delButton:hover {
-  background-color: #ff7875;
 }
