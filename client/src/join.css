@@ -31,10 +31,6 @@
     text-align: left;
 }
 
-.middle1:focus{ /*테두리 지우기*/
-    outline:none;
-}
-
 .middle2{ /*인증, 확인*/
     font-size: 15px;
     border-radius: 20px;
@@ -51,6 +47,46 @@
     display: block;
 }
 
+.middle3{ /*이메일 코드 인증*/
+    font-size: 13px;
+    border-radius: 20px;
+    box-shadow: 0 3px rgba(45, 45, 45, 0.16), 0 3px 6px rgba(45, 45, 45, 0.23);
+    background-color: #F5F5F5;
+    color: black;
+    padding: 10px 40px 10px 40px;
+    text-align: center;
+    border: none;
+    cursor: auto;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.middle4{ /*이메일 코드 인증 확인*/
+    font-size: 10px;
+    border-radius: 20px;
+    box-shadow: 0 3px rgba(45, 45, 45, 0.16), 0 3px 6px rgba(45, 45, 45, 0.23);
+    background-color: #AAAAAA;
+    color: white;
+    padding: 8px 30px 8px 30px;
+    text-align: center;
+    border: none;
+    cursor: auto;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.middle1:focus{ /*테두리 지우기*/
+    outline:none;
+}
+
+.middle3:focus{ /*테두리 지우기*/
+    outline:none;
+}
+
 .peristalsis { /*연동*/
     display: flex;
     align-items: center;
@@ -62,4 +98,44 @@
     margin: 0 20px;
     width: 40px;
     border-radius: 50px;
+}
+
+.modal { /*모달창*/
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 3px rgba(45, 45, 45, 0.16), 0 3px 6px rgba(45, 45, 45, 0.23);
+    border-radius: 20px;
+    line-height: 1.2;
+    z-index: 1000;
+}
+
+.modal_e_error{ /*이메일 인증 실패*/
+    color: #FE8282;
+    font-size: 13px;
+    margin-top: 5px;
+
+}
+
+.modal_overly{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(45, 45, 45, 0.5);
+    z-index: 999;
+}
+
+.sent_code{
+    border: 0;
+    background-color: transparent;
+    color: #333333;
+    font-size: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+    line-height: 1;
 }
