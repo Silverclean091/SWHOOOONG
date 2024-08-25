@@ -1,11 +1,15 @@
 .react-calendar {
   width: 550px;
   max-width: 100%;
-  background: white;
+  background: #f5f5f5;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
   margin-top: 50px;
   margin-left: 100px;
+}
+
+.Calendar-container {
+  height: 700px;
 }
 
 .react-calendar--doubleView {
@@ -86,6 +90,8 @@
   color: #d10000;
 }
 
+.react-calendar__month-view__weekdays__weekday
+
 .react-calendar__month-view__days__day--neighboringMonth,
 .react-calendar__decade-view__years__year--neighboringDecade,
 .react-calendar__century-view__decades__decade--neighboringCentury {
@@ -162,14 +168,178 @@
   background-color: #ababab;
 }
 
+.logo {
+  width: 568px;
+  height: 5vh;
+  background-color: #d10000;
+  float: left;
+}
+
+.menu {
+  width: 100px;
+  height: 5vh;
+  background-color: #a9d4ff;
+  float: right;
+}
+
+.alert {
+  width: 100px;
+  height: 5vh;
+  background-color: #ffff76;
+  float: right;
+}
+
 .mid {
   width: 768px;
   height: 85vh;
-  background-color: #76baff;
 }
 
 .under {
   width: 768px;
   height: 10vh;
   background-color: #ffff76;
+}
+
+.addButton {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #f5f5f5;
+  color: #333;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* 모달 */
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+button {
+  margin: 5px;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input, textarea {
+  padding: 8px;
+  margin-bottom: 10px;
+  width: calc(100% - 16px);
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.eventSec {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-height: 300px; /* 일정 목록의 최대 높이 지정 */
+  overflow-y: auto; /* 내용이 넘칠 경우 세로 스크롤 표시 */
+}
+
+/* 일정 목록 섹션 */
+.eventList {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* 날짜 제목 스타일링 */
+.mid h2 {
+  font-size: 20px;
+  color: #333;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  margin-left: 100px;
+}
+
+/* 개별 이벤트 박스 */
+.eventBox {
+  background-color: #f5f5f5;
+  border-radius: 40px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 이벤트 정보 컨테이너 */
+.eventInfo {
+  margin-bottom: 8px;
+}
+
+/* 이벤트 제목 */
+.eventTitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 4px;
+  margin-left: 30px;
+}
+
+/* 이벤트 메모 */
+.eventMemo {
+  font-size: 14px;
+  color: #AAA;
+  display: block;
+  margin-left: 30px;
+}
+
+/* 이벤트 시간 */
+.eventTime {
+  font-size: 14px;
+  color: #333;
+  text-align: right;
+}
+
+.delButton {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: flex-end;
+}
+
+.delButton:hover {
+  background-color: #ff7875;
 }

@@ -1,27 +1,66 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
+import Modal from 'react-modal';
 import '../style/Calendar.css';
 
+Modal.setAppElement('#root');  // 모달을 사용하는 컴포넌트의 최상위 요소 설정
+
 function Cal() {
-    const [value, onChange] = useState(new Date());
+    const [value, onChange] = useState(new Date()); // 날짜
+    const [event, setEvent] = useState([]); // 이벤트
+    const [modalOpen, setModalOpen] = useState(false); // 모달
+    const [newEvent, setNewEvent] = useState({ // 이벤트
+        title: '', memo: '',
+        startTime: '', endTime: '', date: ''
+    });
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+        setNewEvent({title: '', memo: '',
+            startTime: '', endTime: '', date: ''
+        });
+    };
+
+    const reflection = (e) => {
+        const {name, value} = e.target;
+        setNewEvent(prev => ({...prev, [name]: value}));
+    };
+
+    const saveEvent = () => { // newEvent 속성 복사, newEvent에 고유 id 부여
+        setEvent([...event, {...newEvent, id: event.length + 1, value}]);
+        closeModal();
+    };
+
+    const delEvent = (id) => {
+        setEvent(event.filter((event) => event.id !== id));
+    };
 
     return (
         <div>
             <div class='top'>
+                <div class='logo'>
+                    로고 자리
+                </div>
                 <div class='menu'>
                     메뉴 아이콘 자리
                 </div>
                 <div class='alert'>
-                    알림 아이콘 자리
+                    <img src='../image/bell.png'/>
                 </div>
             </div>
+
             <div class='mid'>
                 <div class='today'>
-                    오늘 날짜 자리
+                    ㅤ
                 </div>
                 <div class='cal'>
                     <Calendar
-                    onChange={onChange} value={value}
+                    onChange={onChange}
+                    value={value}
                     calendarType='gregory'
                     formatDay={(locale, date) => date.toLocaleString('en', 
                         {day: 'numeric'})}
@@ -30,10 +69,74 @@ function Cal() {
                     showNeighboringMonth={false}
                     />
                 </div>
-                <div class='schedule'>
-                    일정
+
+                <h2>{value.toLocaleDateString('ko-KR', 
+                        {year: 'numeric', month: 'long', 
+                        day: 'numeric', weekday: 'long'})}</h2>
+
+                <div class='eventSec'>
+                <div class='eventList'>
+                    {event
+                        .filter((event) => 
+                            new Date(event.value).toDateString() === value.toDateString())
+                        .map((event) => (
+                        <div class="eventBox" key={event.id}>
+                            <div class="eventInfo">
+                                <span class="eventTitle">{event.title}</span>
+                                <span class="eventMemo">{event.memo}</span>
+                            </div>
+                            <div class="eventTime">
+                                <span>{event.startTime}</span>
+                                <span>{event.endTime}</span>
+                            </div>
+                            <div>
+                                <button class='delButton' onClick={() => delEvent(event.id)}>삭제</button>
+                            </div>
+                        </div>
+                    ))}
                 </div>
+                </div>
+                
+                <button class='addButton' onClick={openModal}>+</button>
             </div>
+
+            <Modal
+                isOpen={modalOpen}
+                onRequestClose={closeModal}
+                contentLabel='Modal'
+                className='modal'
+                overlayClassName='overlay'
+            >
+                <div class='modalContents'>
+                    <input
+                        type='text'
+                        name='title'
+                        value={newEvent.title}
+                        onChange={reflection}
+                        placeholder='일정 제목'
+                    />
+                    <input
+                        type="time"
+                        name="startTime"
+                        value={newEvent.startTime}
+                        onChange={reflection}
+                    />
+                    <input
+                        type="time"
+                        name="endTime"
+                        value={newEvent.endTime}
+                        onChange={reflection}
+                    />
+                    <textarea
+                        name="memo"
+                        value={newEvent.memo}
+                        onChange={reflection}
+                        placeholder="메모"
+                    />
+                    <button onClick={saveEvent}>추가</button>
+                </div>
+            </Modal>
+
             <div class='under'>
                 <div class='foot'>
                     하단바
