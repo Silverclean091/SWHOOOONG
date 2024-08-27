@@ -133,7 +133,7 @@ function Cal() {
                                 )}
                             </div>
                             <div class="eventTime">
-                                <span>{event.startTime}</span>
+                                <span>{event.startTime}</span><br />
                                 <span>{event.endTime}</span>
                             </div>
                         </div>
