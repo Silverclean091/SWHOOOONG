@@ -258,6 +258,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+  z-index: 100;
 }
 
 button {
@@ -312,18 +313,20 @@ input, textarea {
   padding: 10px;
   margin-bottom: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow-x: hidden;
+  position: relative;
 }
 
 .eventOption {
-  position: relative;
-  right: 0;
-  top: 100%;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   border: 1px solid #ddd;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
 
@@ -341,6 +344,7 @@ input, textarea {
   border: none;
   background: none;
   cursor: pointer;
+  z-index: 10;
 }
 
 .eventOption button svg {
@@ -349,6 +353,7 @@ input, textarea {
 
 .eventInfo {
   margin-bottom: 8px;
+  flex: 1;
 }
 
 .eventTitle {
@@ -372,4 +377,5 @@ input, textarea {
   font-size: 14px;
   color: #333;
   text-align: right;
+  margin-right: 70px;
 }
