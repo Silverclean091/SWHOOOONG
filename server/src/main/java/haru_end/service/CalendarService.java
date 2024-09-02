@@ -43,7 +43,7 @@ public class CalendarService {
                 .toList();
     }
 
-    // 데이터 부분 필드 업데이트(PATCH)
+    // 데이터 부분 PATCH
     public void updateEventById(Long id, CalendarDTO calendarDTO) {
         CalendarEntity existingEvent = calendarRepository.findById(id);
         if (existingEvent != null) {
@@ -71,7 +71,7 @@ public class CalendarService {
         calendarRepository.deleteById(id);
     }
 
-    // 엔티티를 DTO로 변환
+    // entity DTO로 변환
     private CalendarDTO mapToDTO(CalendarEntity entity) {
         CalendarDTO dto = new CalendarDTO();
         dto.setId(entity.getId());
