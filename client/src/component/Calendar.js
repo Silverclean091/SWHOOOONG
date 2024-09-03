@@ -15,7 +15,7 @@ function Cal() {
     const [value, onChange] = useState(new Date()); // 날짜
     const [event, setEvent] = useState([]); // 이벤트
     const [modalOpen, setModalOpen] = useState(false); // 모달
-    const [newEvent, setNewEvent] = useState({ // 이벤트
+    const [newEvent, setNewEvent] = useState({ // 이벤트 저장
         title: '', memo: '',
         startTime: '', endTime: '', date: ''
     });
@@ -69,7 +69,7 @@ function Cal() {
 
     const updateEvent = () => {
         setEvent(event.map(ev => 
-            ev.id === selectEvent.id ? {...newEvent, id: ev.id, value} : ev
+            ev.id === selectEvent.id ? {...newEvent, id: ev.id} : ev
         ));
         editClose();
     };
@@ -126,7 +126,7 @@ function Cal() {
                                 <button class='eventOption' onClick={() => menuOpen(event)}><IoMdMore /></button>
                                     {openMenu && selectEvent.id === event.id && (
                                         <div class='eventMenu'>
-                                        <button onClick={() => editOpen(event)}>일정 수정</button>
+                                        <button onClick={() => modalOpen(event)}>일정 수정</button>
                                         <button onClick={() => delEvent(event.id)} style={{ color: 'red' }}>일정 삭제</button>
                                         <button onClick={editClose}>취소</button>
                                     </div>
@@ -177,7 +177,11 @@ function Cal() {
                         onChange={reflection}
                         placeholder="메모"
                     />
-                    <button onClick={saveEvent}>추가</button>
+                    {selectEvent ? (
+                        <button onClick={updateEvent}>수정</button>
+                    ) : (
+                        <button onClick={saveEvent}>추가</button>
+                    )}
                 </div>
             </Modal>
 
@@ -189,7 +193,7 @@ function Cal() {
                 className='modal'
                 overlayClassName='overlay'
             >
-                <div class='modalContents'>
+                <div class='modalContentsEdit'>
                     <input
                         type='text'
                         name='title'
