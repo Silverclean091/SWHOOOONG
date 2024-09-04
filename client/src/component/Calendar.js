@@ -46,7 +46,7 @@ function Cal() {
             startTime: event.startTime, endTime: event.endTime,
             date: event.date
         });
-        setEditOpen(true);
+        setModalOpen(true);
     };
 
     const editClose = () => {
@@ -63,15 +63,20 @@ function Cal() {
     };
 
     const saveEvent = () => { // newEvent 속성 복사, newEvent에 고유 id 부여
-        setEvent([...event, {...newEvent, id: event.length + 1, value}]);
-        closeModal();
+        if (selectEvent) {
+            updateEvent();
+        } else {
+            setEvent([...event, {...newEvent, id: event.length + 1, value: value}]);
+            closeModal();
+        }
     };
 
     const updateEvent = () => {
         setEvent(event.map(ev => 
-            ev.id === selectEvent.id ? {...newEvent, id: ev.id} : ev
+            ev.id === selectEvent.id ? {...newEvent, id: ev.id, value: ev.value} : ev
         ));
-        editClose();
+        closeModal();
+        setSelectEvent(null);
     };
 
     const delEvent = (id) => {
