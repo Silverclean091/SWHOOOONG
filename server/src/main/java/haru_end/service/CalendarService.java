@@ -63,12 +63,12 @@ public class CalendarService {
                 existingEvent.setUser_email(calendarDTO.getUser_email());
             }
         }
-        calendarRepository.updateById(id, existingEvent); // 업데이트 할 필드만 업데이트됨
+        calendarRepository.update(id, existingEvent); // 업데이트 할 필드만 업데이트됨
     }
 
     // DELETE
     public void deleteEventById(Long id) {
-        calendarRepository.deleteById(id);
+        calendarRepository.delete(id);
     }
 
     // entity DTO로 변환

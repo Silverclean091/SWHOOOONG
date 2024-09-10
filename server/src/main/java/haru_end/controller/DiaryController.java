@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/diary")
 public class DiaryController {
-
+    private final DiaryService diaryService;
 }
