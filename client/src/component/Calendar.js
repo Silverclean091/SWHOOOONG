@@ -24,6 +24,7 @@ function Cal() {
     const [openMenu, setMenuOpen] = useState(false);
 
     const openModal = () => {
+        setSelectEvent(null);
         setModalOpen(true);
     };
 
