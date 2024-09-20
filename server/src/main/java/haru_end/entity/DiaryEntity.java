@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Setter
 public class DiaryEntity {
     private long id;
-    private long image;
+    private long diary_image;
     private String today_feeling;
     private long is_open;
     private LocalDate diary_date;
