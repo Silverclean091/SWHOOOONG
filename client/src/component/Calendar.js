@@ -149,15 +149,15 @@ function Cal() {
                 
                 <button class='addButton' onClick={openModal}>+</button>
             </div>
-            
+
             <Modal
-                isOpen={modalOpen}
-                onRequestClose={closeModal}
-                contentLabel='Modal'
+                isOpen={modalOpen || openEdit}
+                onRequestClose={closeModal} 
+                contentLabel='Event Modal'
                 className='modal'
                 overlayClassName='overlay'
             >
-                <div class='modalContents'>
+                <div className='modalContents'>
                     <input
                         type='text'
                         name='title'
@@ -184,48 +184,10 @@ function Cal() {
                         placeholder="메모"
                     />
                     {selectEvent ? (
-                        <button onClick={updateEvent}>수정</button>
+                        <button onClick={updateEvent}>수정</button> // selectEvent가 존재하면 수정 모드
                     ) : (
-                        <button onClick={saveEvent}>추가</button>
+                        <button onClick={saveEvent}>추가</button>   // selectEvent가 없으면 추가 모드
                     )}
-                </div>
-            </Modal>
-
-            
-            <Modal
-                isOpen={openEdit}
-                onRequestClose={editClose}
-                contentLabel='Edit Modal'
-                className='modal'
-                overlayClassName='overlay'
-            >
-                <div class='modalContentsEdit'>
-                    <input
-                        type='text'
-                        name='title'
-                        value={newEvent.title}
-                        onChange={reflection}
-                        placeholder='일정 제목'
-                    />
-                    <input
-                        type="time"
-                        name="startTime"
-                        value={newEvent.startTime}
-                        onChange={reflection}
-                    />
-                    <input
-                        type="time"
-                        name="endTime"
-                        value={newEvent.endTime}
-                        onChange={reflection}
-                    />
-                    <textarea
-                        name="memo"
-                        value={newEvent.memo}
-                        onChange={reflection}
-                        placeholder="메모"
-                    />
-                    <button onClick={saveEvent}>추가</button>
                 </div>
             </Modal>
             
