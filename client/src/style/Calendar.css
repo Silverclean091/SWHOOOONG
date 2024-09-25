@@ -156,7 +156,7 @@
   background-color: #e6e6e6;
 }
 
-.top {
+.header {
   width: 768px;
   height: 5vh;
   align-items: center;
@@ -188,12 +188,12 @@
   overflow-y: auto;
 }
 
-.under {
+.footer {
   width: 768px;
   height: 8vh;
 }
 
-.foot {
+.under {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -201,18 +201,18 @@
   z-index: 3;
 }
 
-.foot > div {
+.under > div {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  justify-content: center;
   align-items: center;
-  margin: 0 10px;
 }
 
-.foot > div > span {
+.under > div > span {
   margin-top: 5px;
   font-size: 10px;
   color: #333;
+  text-align: center;
 }
 
 .addButton {
@@ -322,9 +322,9 @@ input, textarea {
 
 /* 일정 목록 섹션 */
 .eventList {
-  width: 90%;
+  width: 100%;
   max-width: 600px;
-  margin-top: 0;
+  margin: 0 auto;
   border-radius: 8px;
   padding: 20px;
 }
@@ -333,18 +333,19 @@ input, textarea {
 .mid h2 {
   font-size: 20px;
   color: #333;
-  margin-top: 15px;
+  margin-top: 30px;
   margin-left: 100px;
 }
 
 /* 개별 이벤트 박스 */
 .eventBox {
-  width: 520px;
+  width: 100%;
+  max-width: 520px;
   height: 70px;
   background-color: #f5f5f5;
   border-radius: 40px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin: 10px auto;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   align-items: center;
   display: flex;
@@ -358,8 +359,9 @@ input, textarea {
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
   z-index: 10;
 }
 
@@ -369,15 +371,6 @@ input, textarea {
   bottom: 0;
   right: 0;
   z-index: 100;
-}
-
-.eventOption button {
-  align-items: center;
-  padding: 8px 12px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  z-index: 10;
 }
 
 .eventOption button svg {
@@ -411,4 +404,39 @@ input, textarea {
   color: #333;
   text-align: right;
   margin-right: 70px;
+}
+
+.optionsModalOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.optionsModalContent {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.optionsModalContent button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.optionsModalContent button:hover {
+  background-color: #f0f0f0;
 }
