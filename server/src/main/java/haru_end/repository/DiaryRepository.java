@@ -22,9 +22,26 @@ public class DiaryRepository {
         entity.setDiary_image(rs.getLong("diary_image"));
         entity.setToday_feeling(rs.getString("today_feeling"));
         entity.setIs_open(rs.getLong("is_open"));
-        entity.setDiary_date(rs.getDate("diary_date").toLocalDate());
+
+        // diary_date가 null인지 체크한 후 toLocalDate()를 호출합니다.
+        java.sql.Date diaryDate = rs.getDate("diary_date");
+        if (diaryDate != null) {
+            entity.setDiary_date(diaryDate.toLocalDate());
+        } else {
+            entity.setDiary_date(null); // 또는 적절한 기본값 설정
+        }
+
         entity.setContext(rs.getString("context"));
         entity.setUser_email(rs.getString("user_email"));
+
+        // deleted_at 필드도 동일하게 처리
+        java.sql.Date deletedAt = rs.getDate("deleted_at");
+        if (deletedAt != null) {
+            entity.setDeleted_at(deletedAt.toLocalDate());
+        } else {
+            entity.setDeleted_at(null); // 또는 적절한 기본값 설정
+        }
+
         return entity;
     };
 
@@ -40,7 +57,7 @@ public class DiaryRepository {
     }
 
     public List<DiaryEntity> findAll() {
-        String sql = "SELECT * FROM tb_diaries";
+        String sql = "SELECT * FROM tb_diaries WHERE deleted = FALSE";
         return jdbcTemplate.query(sql, diaryRowMapper);
     }
 
@@ -50,8 +67,8 @@ public class DiaryRepository {
                 diaryEntity.getDiary_date(), diaryEntity.getContext(), diaryEntity.getUser_email(), id);
     }
 
-    public void deleteById(Long id) {
-        String sql = "DELETE FROM tb_diaries WHERE id = ?";
+    public void softDeleteById(Long id) {
+        String sql = "UPDATE tb_diaries SET deleted = TRUE WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }
 }

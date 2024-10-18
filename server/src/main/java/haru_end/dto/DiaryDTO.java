@@ -13,4 +13,5 @@ public class DiaryDTO {
     private LocalDate diary_date;
     private String context;
     private String user_email;
+    private LocalDate deleted_at;
 }

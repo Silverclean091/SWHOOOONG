@@ -69,7 +69,7 @@ public class DiaryService {
 
     // DELETE: 특정 ID로 다이어리 삭제
     public void deleteDiaryById(Long id) {
-        diaryRepository.deleteById(id);
+        diaryRepository.softDeleteById(id);
     }
 
     // DiaryDTO -> DiaryEntity로 변환
