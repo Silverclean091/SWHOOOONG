@@ -4,6 +4,7 @@ import haru_end.dto.DiaryDTO;
 import haru_end.service.DiaryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -47,5 +48,11 @@ public class DiaryController {
     public ResponseEntity<String> deleteDiaryById(@PathVariable Long id) {
         diaryService.deleteDiaryById(id);
         return ResponseEntity.ok("Diary deleted successfully.");
+    }
+
+    @PostMapping("/restore/{id}")
+    public ResponseEntity<String> restoreDiaryById(@PathVariable Long id) {
+        diaryService.restoreDiary(id);
+        return ResponseEntity.ok("Diary restored successfully.");
     }
 }

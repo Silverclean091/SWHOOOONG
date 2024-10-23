@@ -12,7 +12,6 @@ public class DiaryService {
 
     private final DiaryRepository diaryRepository;
 
-    // 의존성 주입
     public DiaryService(DiaryRepository diaryRepository) {
         this.diaryRepository = diaryRepository;
     }
@@ -27,7 +26,7 @@ public class DiaryService {
     public DiaryDTO findDiaryById(Long id) {
         DiaryEntity diaryEntity = diaryRepository.findById(id);
         if (diaryEntity == null) {
-            return null; // 또는 예외 처리 (예: throw new ResourceNotFoundException("Diary not found"));
+            return null;
         }
         return mapToDTO(diaryEntity);
     }
@@ -44,7 +43,6 @@ public class DiaryService {
     public void updateDiaryById(Long id, DiaryDTO diaryDTO) {
         DiaryEntity existingDiary = diaryRepository.findById(id);
         if (existingDiary != null) {
-            // 필요한 필드만 업데이트
             if (diaryDTO.getDiary_image() != 0) {
                 existingDiary.setDiary_image(diaryDTO.getDiary_image());
             }
@@ -63,13 +61,18 @@ public class DiaryService {
             if (diaryDTO.getUser_email() != null) {
                 existingDiary.setUser_email(diaryDTO.getUser_email());
             }
-            diaryRepository.updateById(id, existingDiary); // 업데이트 메서드 호출
+            diaryRepository.updateById(id, existingDiary);
         }
     }
 
-    // DELETE: 특정 ID로 다이어리 삭제
+    // DELETE: 특정 ID로 다이어리 삭제 (소프트 삭제)
     public void deleteDiaryById(Long id) {
         diaryRepository.softDeleteById(id);
+    }
+
+    // 복구: 특정 ID로 삭제된 다이어리 복구
+    public void restoreDiary(Long id) {
+        diaryRepository.restoreDiaryById(id);
     }
 
     // DiaryDTO -> DiaryEntity로 변환
